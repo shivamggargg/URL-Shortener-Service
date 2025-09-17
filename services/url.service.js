@@ -6,7 +6,7 @@ import { and, eq } from 'drizzle-orm';
 export async function createUrl(userID,shortcode,url) {
     //console.log("Params@ : ",userID,shortcode,url);
     const [urlEntry] = await db.insert(urlsTables).values({
-        usedId: userID,
+        userId: userID,
         shortCode: shortcode,
         targetURL : url,
     }).returning({ id : urlsTables.id, 
@@ -34,4 +34,5 @@ export async function getAllCodesByUserId(userID){
 
     return result;
 }
+
 
